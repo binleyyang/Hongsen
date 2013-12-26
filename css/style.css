@@ -1,0 +1,359 @@
+@font-face {font-family: 'Novecentowide-Light';src: url('webfonts/27DA7B_0_0.eot');src: url('webfonts/27DA7B_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/27DA7B_0_0.woff') format('woff'),url('webfonts/27DA7B_0_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'Novecentowide-Normal';src: url('webfonts/27DA7B_1_0.eot');src: url('webfonts/27DA7B_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/27DA7B_1_0.woff') format('woff'),url('webfonts/27DA7B_1_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'Novecentowide-Medium';src: url('webfonts/27DA7B_2_0.eot');src: url('webfonts/27DA7B_2_0.eot?#iefix') format('embedded-opentype'),url('webfonts/27DA7B_2_0.woff') format('woff'),url('webfonts/27DA7B_2_0.ttf') format('truetype');}
+ 
+* {margin: 0; padding: 0; border: 0;}
+
+body {
+	width: 100%;
+	position: relative;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.hidden {
+	display: none;
+}
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.header-container {
+	position: fixed;
+	height: 90px;
+	background-color: #1c1c1c;
+	width: 100%;
+	margin: 0;
+	z-index: 9999;
+}
+
+.header {
+	width: 960px;
+	margin: 0 auto;
+	background-color: #1c1c1c;
+	height: 90px;
+}
+
+#logo img {
+	float: left;
+	margin-top: 16px;
+}
+
+nav ul {
+	list-style-type: none;
+	position: relative;
+	float: right;
+}
+
+nav ul li {
+	float: left;
+	display: block;
+	margin-top: 32px;
+}
+
+nav ul li a {
+	color: white;
+	padding: 35px 16px;
+	text-decoration: none;
+}
+
+nav ul li a.last {
+	padding: 35px 0px 35px 16px;
+}
+
+.active {
+	text-decoration: underline;
+}
+
+nav ul li a:hover {
+	text-decoration: underline;
+}
+
+#banner img {
+	max-width: 100%;
+	height: auto;
+	width: auto\9; /* ie8 */
+	position: relative;
+	padding-top: 90px;
+}
+
+.intro {
+	position: relative;
+	height: 144px;
+	background-color: #feba33;
+}
+
+.intro span {
+	color: #000;
+}
+
+.intro p {
+	width: 960px;
+	margin: 0 auto;
+	color: #fff;
+	font-size: 36px;
+	padding-top: 30px;
+}
+
+.portfolio-text {
+	position: relative;
+	width: 960px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 72px 0px;
+}
+
+.portfolio-text h2 {
+	font-size: 48px;
+	padding-bottom: 36px;
+}
+
+.portfolio-text p {
+	font-size: 18px;
+}
+
+.buttons {
+	width: 100%;
+	background-color: #fafafa;
+}
+
+.buttons ul {
+	text-align: center;
+	list-style-type: none;
+}
+
+.buttons ul li {
+	display: inline-block;
+	position: relative;
+	z-index: 0;
+	padding: 36px;
+}
+
+.buttons ul span {
+	position: absolute;
+	left: -9999px;
+}
+
+.buttons ul img {
+	z-index: 50;
+	cursor: pointer;
+}
+
+.buttons ul li:hover span {
+	cursor: pointer;
+	padding: 36px;
+	top: 0;
+	left: 0;
+	background-color: #feba33;
+}
+
+
+/*------------------------------------------------ALBUM CONTAINER-----------------------------------------------------*/
+
+.album-container {
+	width: 960px;
+	margin: 0 auto;
+	padding: 36px 0 72px 0;
+}
+
+.album-container ul {
+	list-style-type: none;
+}
+
+.album-container ul li {
+	display: inline-block;
+	vertical-align: top;
+	display: -moz-inline-stack;
+	zoom: 1;
+    *display: inline;
+    _height: 308px;
+}
+
+.album-container ul li.left-side {
+	margin-right: 32px;
+}
+
+.album-container ul li.top {
+	margin-bottom: 36px;
+}
+
+.album-container ul li a {
+	opacity: 1;
+}
+
+.album-container ul li a:hover {
+	opacity: .5
+	-webkit-transition: opacity .35s ease-in;
+    -moz-transition: opacity .35s ease-in;
+    -ms-transition: opacity .35s ease-in;
+    -o-transition: opacity .35s ease-in;
+	transition: opacity .35s ease-in;
+} 
+
+/*--------------------------------------------------CLIENT CONTAINER--------------------------------------------------------*/
+
+.client {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	padding-bottom: 36px;
+}
+
+.client .client-container {
+	width: 960px;
+	margin: 0 auto;
+}
+
+.client img#bg {
+	position: absolute;
+	z-index: 1;
+}
+
+.client img#boxes {
+	position: absolute;
+	z-index: 100;
+	margin-top: 108px;
+}
+
+.client h2 {
+	position: relative;
+	text-align: center;
+	z-index: 101;
+	color: #fff;
+	top: 72px;
+}
+
+/*-----------------------------------------------------SERVICES CONTAINER-------------------------------------------------*/
+
+
+.service-text {
+	position: relative;
+	width: 960px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 72px 0px;
+}
+
+.service-text h2 {
+	font-size: 48px;
+	padding-bottom: 36px;
+}
+
+.service-text p {
+	font-size: 18px;
+}
+
+#photography-temp {
+	display: none;
+}
+
+.service-block {
+	width: 960px;
+	margin: 0 auto;
+	padding-top: 36px;
+}
+
+.service-block .left-content {
+	position: relative;
+	float: left;
+	width: 460px;
+}
+
+.service-block .right-content {
+	position: relative;
+	float: right;
+	width: 460px;
+}
+
+.service-block .left-content img {
+	display: block;
+	margin: auto;
+}
+
+.service-block .right-content img {
+	display: block;
+	margin: auto;
+}
+
+.service-block .left-content h3 {
+	text-align: center;
+	font-family: 'Novecentowide-Normal';
+	font-size: 28px;
+}
+
+.service-block .right-content h3 {
+	text-align: center;
+	font-family: 'Novecentowide-Normal';
+	font-size: 28px;
+}
+
+.service-block .left-content  {
+	padding: 10px;
+}
+
+.service-block .right-content  {
+	padding: 10px;
+}
+
+
+/*-------------------------------------------------------SLOGAN---------------------------------------------------------*/
+
+#slogan {
+	width: 100%;
+	background-color: #feba33;
+	position: relative;
+	top: 36px;
+}
+
+#slogan #slogan-container {
+	width: 960px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 54px;
+}
+
+#slogan p {
+	color: #fff;
+	font-size: 36px;
+}
+
+#slogan span {
+	color: #000;
+}
+
+/*-----------------------------------------------------------PRINTS------------------------------------------------------*/
+
+.prints-container {
+	position: relative;
+	width: 100%;
+	top: 36px;
+}
+
+.prints-container img {
+	position: absolute;
+}
+
+.prints {
+	width: 960px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.prints img {
+	left: 0%;
+}
+
+.prints-container .prints h2 {
+	position: relative;
+	color: #fff;
+}
+
+.prints-container .prints p {
+	position: relative;
+	color: #fff;
+}
