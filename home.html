@@ -9,7 +9,27 @@
 		<script src="js/modernizr.custom.js"></script>	
 		<script type="text/javascript">
 			$(document).ready(function() {
-				$('buttons ul li.onlink')
+				$('.buttons1 a').click(function() {
+					$('.button_active').removeClass('button_active');
+					$(this).parent().addClass('button_active');
+
+					$('.show_content1').hide();
+					var get_id = $(this).attr('rel');
+					$('#' + get_id).show();
+
+					return false;
+				});
+
+				$('.buttons2 a').click(function() {
+					$('.button_active').removeClass('button_active');
+					$(this).parent().addClass('button_active');
+
+					$('.show_content2').hide();
+					var get_id = $(this).attr('rel');
+					$('#' + get_id).show();
+
+					return false;
+				});
 			});
 		</script>
 	</head>
@@ -47,34 +67,58 @@
 				<p>The story of my life, divided into two parts. Explore my design and </br>photography work using the two tabs.</p>
 			</div><!--end portfolio-text-->
 
-			<div class="buttons">
+			<div class="buttons buttons1">
 				<ul>
 					<li id="graphic-design">
-						<img src="images/portfolio/subnav_gd_rest.png">
-						<span><img src="images/portfolio/subnav_gd_down.png"></span>
+						<a href="#" rel="design-port">
+							<img src="images/portfolio/subnav/subnav_gd_rest.png">
+							<span><img src="images/portfolio/subnav/subnav_gd_down.png"></span>
+						</a>
 					</li>
-					<li id="photography">
-						<img src="images/portfolio/subnav_p_rest.png">
-						<span><img src="images/portfolio/subnav_p_down.png"></span>
+					<li id="photography" class="button_active">
+						<a href="#" rel="photography-port">
+							<img src="images/portfolio/subnav/subnav_p_rest.png">
+							<span><img src="images/portfolio/subnav/subnav_p_down.png"></span>
+						</a>
 					</li>
 				</ul>
 			</div><!--end buton-->
 
 			<div class="album-container">
-				<ul>
-					<li class="top left-side">
-						<a href="arizona-viewer.html"><img src="images/portfolio/photo-arizona.png"></a>
-					</li>
-					<li class="top">
-						<a href="vermont-viewer.html"><img src="images/portfolio/photo-vermont.png"></a>
-					</li>
-					<li class="left-side">
-						<a href="utah-viewer.html"><img src="images/portfolio/photo-utah.png"></a>
-					</li>
-					<li>
-						<a href="misc-viewer.html"><img src="images/portfolio/photo-misc.png"></a>
-					</li>
-				</ul>
+				<div class="show_content1" id="photography-port">
+					<ul>
+						<li class="top left-side">
+							<a href="arizona.html"><img src="images/portfolio/photo-arizona.png"></a>
+							<p>ARIZONA</p>
+						</li>
+						<li class="top">
+							<a href="vermont.html"><img src="images/portfolio/photo-vermont.png"></a>
+							<p>VERMONT</p>
+						</li>
+						<li class="left-side">
+							<a href="utah.html"><img src="images/portfolio/photo-utah.png"></a>
+							<p>UTAH</p>
+						</li>
+						<li>
+							<a href="misc.html"><img src="images/portfolio/photo-misc.png"></a>
+							<p>MISC</p>
+						</li>
+					</ul>
+				</div>
+
+				<div class="show_content1" id="design-port">
+					<ul>
+						<li class="top left-side">
+							<a href="chesscademy.html"><img src="images/portfolio/GD_Chesscademy.png"></a>
+						</li>
+						<li class="top">
+							<a href="personal.html"><img src="images/portfolio/GD_Personal.png"></a>
+						</li>
+						<li class="left-side">
+							<a href="vesper.html"><img src="images/portfolio/GD_Vesper.png"></a>
+						</li>
+					</ul>
+				</div>
 			</div><!--end album-container-->
 
 			<div class="client">
@@ -92,25 +136,25 @@
 				<p>I'm here to bring you a one-on-one experience. Feel free to contact</br> me if you have any questions.</p>
 			</div><!--end service-text-->
 
-			<div class="buttons">
+			<div class="buttons buttons2">
 				<ul>
-					<li id="graphic-design" class="onlink">
-						<a href="#">
-							<img src="images/portfolio/subnav_gd_rest.png">
-							<span><img src="images/portfolio/subnav_gd_down.png"></span>
+					<li id="graphic-design" class="button_active">
+						<a href="#" rel="design-service">
+							<img src="images/portfolio/subnav/subnav_gd_rest.png">
+							<span><img src="images/portfolio/subnav/subnav_gd_down.png"></span>
 						</a>
 					</li>
-					<li id="photography">
-						<a href="#">
-							<img src="images/portfolio/subnav_p_rest.png">
-							<span><img src="images/portfolio/subnav_p_down.png"></span>
+					<li id="photo">
+						<a href="#" rel="photography-service">
+							<img src="images/portfolio/subnav/subnav_p_rest.png">
+							<span><img src="images/portfolio/subnav/subnav_p_down.png"></span>
 						</a>
 					</li>
 				</ul>
 			</div><!--end buttons-->
 
 			<div class="service-block">
-				<div id="design" class="show_content">
+				<div id="design-service" class="show_content2">
 					<div class="left-content">
 						<img src="images/services/design.png">
 						<h3>Design</h3>
@@ -123,7 +167,7 @@
 					</div>
 				</div>
 
-				<div id="photography-temp" class="show_content">
+				<div id="photography-service" class="show_content2">
 					<div class="left-content">
 						<img src="images/services/portrait.png">
 						<h3>Portraits</h3>
@@ -143,7 +187,7 @@
 				<div id="slogan-container">
 					<p>"Let's create something <span>remarkable.</span>"</p>
 				</div>
-			</div>
+			</div><!--end slogan-->
 
 			<div class="prints-container">
 				<img src="images/prints/print_bg.png">
@@ -152,17 +196,52 @@
 					<p>The prints section is still under development! Please check back <br>soon for the full page!</p>
 					<img src="images/prints/print_icon.png">
 				</div>
-			</div>
-<!--
-			<div class="contact">
+			</div><!--end prints container-->
 
-			</div>
+			<div class="contact-container">
+				<img src="images/contacts/contact_bg.jpg">
+				<div class="contact">
+					<h2>CONTACT</h2>
+					<p id="contact-text">You can email or call me using the following information if you have an inquiry, want to colloborate, or just say hi! Follow me on my social media pages to see my recent work.</p>
+					<ul>
+						<li>
+							<span>EMAIL</span><br>hongsen.m.yang@gmail.com
+						</li>
+						<li>
+							<span>PHONE</span><br>617 932 9753
+						</li>
+						<li class="last">
+							<span>ADDRESS</span><br>Belmont, MA<br>02478<br>USA
+						</li>
+					</ul>
+					<!--
+					<p class="label">EMAIL</p>
+					<p class="small_text">hongsen.m.yang@gmail.com</p>
+					<p class="label">PHONE</p>
+					<p class="small_text">617 932 9753</p>
+					<p class="label">ADDRESS</p>
+					<p class="small_text">Belmont, MA <br>02478<br>USA</p>
+				-->
+				</div>
+			</div><!--end contact-container-->
 
 			<div class="footer">
+				<div id="social-menu">
+					<div id="social-menu-wrapper">
+						<a href=""><img src="images/footer/fb.png"></a>
+						<a href=""><img src="images/footer/google.png"></a>
+						<a href=""><img src="images/footer/linkedin.png" id="last"></a>
+					</div>
+				</div>
+				<div class="copyright-container">
+					<div class="copyright">
+						<img src="images/footer/footer_logo.png">
+						<p>COPYRIGHT (C) 2013 HONGSEN YANG. ALL RIGHTS RESERVED. </p>
+					</div>
+				</div>
+			</div><!--end footer-->
 
-			</div>
-		-->
-		</div>
+		</div><!--end main container-->
 
 		<div class="hidden">
 				<script type="text/javascript">
@@ -339,6 +418,5 @@
 					addLoadEvent(preloader);
 				</script>
 			</div>
-
 	</body>
 </html>
