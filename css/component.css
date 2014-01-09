@@ -57,12 +57,12 @@
 
 .cbp-fwslider nav span.cbp-fwnext {
 	right: 0px;
-	background-image: url(../images/portfolio/arrow_right.png);
+	background-image: url(../images/arrow_right.png);
 }
 
 .cbp-fwslider nav span.cbp-fwprev {
 	left: 0px;
-	background-image: url(../images/portfolio/arrow_left.png);
+	background-image: url(../images/arrow_left.png);
 }
 
 .cbp-fwdots {

@@ -9,9 +9,38 @@
 		<script src="js/modernizr.custom.js"></script>	
 		<script type="text/javascript">
 			$(document).ready(function() {
+
+				$('#btt').click(function(e) {
+					e.preventDefault();
+					$('html, body').animate({scrollTop: 0}, 500);
+					return false;
+				});
+
+				$('.intro a').click(function(e) {
+					e.preventDefault();
+					$('.container').animate({'opacity' : .15}, 'slow');
+					var id = $(this).attr('href');
+
+					$(id).fadeIn(500);
+				});
+
+				$(document).mouseup(function(e) {
+					var container = $("#about-container");
+
+					if (!container.is(e.target) && container.has(e.target).length === 0) {
+						$('.container').animate({'opacity' : 1});
+						container.fadeOut();
+					}
+				});
+
+				$('.about_link').click(function() {
+					$('.container').animate({'opacity' : 1});
+					$('#about-container').fadeOut();
+				});
+
 				$('.buttons1 a').click(function() {
-					$('.button_active').removeClass('button_active');
-					$(this).parent().addClass('button_active');
+					$('.button_active1').removeClass('button_active1');
+					$(this).parent().addClass('button_active1');
 
 					$('.show_content1').hide();
 					var get_id = $(this).attr('rel');
@@ -21,8 +50,8 @@
 				});
 
 				$('.buttons2 a').click(function() {
-					$('.button_active').removeClass('button_active');
-					$(this).parent().addClass('button_active');
+					$('.button_active2').removeClass('button_active2');
+					$(this).parent().addClass('button_active2');
 
 					$('.show_content2').hide();
 					var get_id = $(this).attr('rel');
@@ -30,13 +59,35 @@
 
 					return false;
 				});
+
+				$('a[href^="#"]').click(function(e) {
+					target = $(this).attr('href');
+					e.preventDefault();
+
+					$('.active').removeClass('active');
+					$(this).addClass('active');
+
+					$('html, body').animate({scrollTop: $(target).offset().top-76}, 500);
+
+					if ($(this).attr('href') == "#about-container") {
+						$('.container').animate({'opacity' : .25}, 'slow');
+						var id = $(this).attr('href');
+						$('html, body').animate({scrollTop: $(".intro").offset().top-76}, 500);
+						$(id).fadeIn(500);
+					} 
+				});
+
+				$('.album-container p').click(function() {
+					var get_id = $(this).attr('id');
+					window.location = get_id + ".html";
+				});
 			});
 		</script>
 	</head>
 
 	<body>
-
 		<div class="container">
+
 			<div class="header-container">
 				<div class="header">
 					<div id="logo">
@@ -44,11 +95,11 @@
 					</div>
 					<nav>
 						<ul id="nav">
-							<li><a href="#" class="active">PORTFOLIO</a></li>
-							<li><a href="#">ABOUT</a></li>
-							<li><a href="#">SERVICES</a></li>
-							<li><a href="#">PRINTS</a></li>
-							<li><a href="#" class="last">CONTACT</a></li>
+							<li><a href="#portfolio" class="active">PORTFOLIO</a></li>
+							<li><a href="#about-container" id="about">ABOUT</a></li>
+							<li><a href="#services">SERVICES</a></li>
+							<li><a href="#prints">PRINTS</a></li>
+							<li><a href="#contact" class="last">CONTACT</a></li>
 						</ul>
 					</nav>
 				</div><!--end header-->				
@@ -56,17 +107,19 @@
 
 			<div id="banner">
 				<img src="images/header/banner.png">
+				<img src="images/nav/down_arrow.png" id="down">
+				<a href="#"><img src="images/nav/backtotop.png" id="btt"></a>
 			</div><!--end banner-->
 
 			<div class="intro">
-				<p>I'm <span>Hongsen,</span> photographer and graphic designer.</br>Let's create something <span>memorable.</span></p>
+				<p>I'm <span><a href="#about-container">Hongsen</a>,</span> photographer and graphic designer.</br>Let's create something <span>memorable.</span></p>
 			</div><!--end intro-->
 
-			<div class="portfolio-text">
+			<div class="portfolio-text" id="portfolio">
 				<h2>PORTFOLIO</h2>
 				<p>The story of my life, divided into two parts. Explore my design and </br>photography work using the two tabs.</p>
 			</div><!--end portfolio-text-->
-
+			
 			<div class="buttons buttons1">
 				<ul>
 					<li id="graphic-design">
@@ -75,33 +128,33 @@
 							<span><img src="images/portfolio/subnav/subnav_gd_down.png"></span>
 						</a>
 					</li>
-					<li id="photography" class="button_active">
+					<li id="photography" class="button_active1">
 						<a href="#" rel="photography-port">
 							<img src="images/portfolio/subnav/subnav_p_rest.png">
 							<span><img src="images/portfolio/subnav/subnav_p_down.png"></span>
 						</a>
 					</li>
 				</ul>
-			</div><!--end buton-->
+			</div><!--end button-->
 
 			<div class="album-container">
 				<div class="show_content1" id="photography-port">
 					<ul>
 						<li class="top left-side">
+							<p class="seven label" id="arizona">ARIZONA</p>
 							<a href="arizona.html"><img src="images/portfolio/photo-arizona.png"></a>
-							<p>ARIZONA</p>
 						</li>
 						<li class="top">
+							<p class="seven label" id="vermont">VERMONT</p>
 							<a href="vermont.html"><img src="images/portfolio/photo-vermont.png"></a>
-							<p>VERMONT</p>
 						</li>
 						<li class="left-side">
+							<p class="four label" id="utah">UTAH</p>
 							<a href="utah.html"><img src="images/portfolio/photo-utah.png"></a>
-							<p>UTAH</p>
 						</li>
 						<li>
+							<p class="four label" id="misc">MISC</p>
 							<a href="misc.html"><img src="images/portfolio/photo-misc.png"></a>
-							<p>MISC</p>
 						</li>
 					</ul>
 				</div>
@@ -125,20 +178,19 @@
 				<h2>RECENT CLIENTS</h2>
 				<img src="images/clients/clients_BG.png" id="bg">
 
-				<div class="client-container">
-					
+				<div class="client-container">		
 					<img src="images/clients/clients.png" id="boxes">
 				</div>
 			</div><!--end client-->
 
-			<div class="service-text">
+			<div class="service-text" id="services">
 				<h2>SERVICES</h2>
 				<p>I'm here to bring you a one-on-one experience. Feel free to contact</br> me if you have any questions.</p>
 			</div><!--end service-text-->
 
 			<div class="buttons buttons2">
 				<ul>
-					<li id="graphic-design" class="button_active">
+					<li id="graphic-design" class="button_active2">
 						<a href="#" rel="design-service">
 							<img src="images/portfolio/subnav/subnav_gd_rest.png">
 							<span><img src="images/portfolio/subnav/subnav_gd_down.png"></span>
@@ -158,12 +210,36 @@
 					<div class="left-content">
 						<img src="images/services/design.png">
 						<h3>Design</h3>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+						<p>
+						<span>Listen:</span><br>
+						This is the brainstorming process where I listen to you. Tell me what you need and I will make it happen.<br><br>
+
+						<span>Design:</span> <br>
+						I will execute your ideas and make them come to life. I will produce multiple designs with your ideas and concepts applied to them. <br><br>
+
+						<span>Refine:</span><br>
+						I will cater to your specific needs. You can reject designs if they don't express your ideas or meet your needs, or you can ask for them to be modified so that your concepts are better applied.<br><br>
+
+						<span>Implement:</span><br>
+						I will be with you all the way until you are satisfied with your project and until you are ready to upload.
+						</p>
 					</div>
 					<div class="right-content">
 						<img src="images/services/branding.png">
 						<h3>Branding</h3>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+						<p>
+						<span>Listen:</span><br>
+						This is the brainstorming process where I listen to you. Tell me what you need and I will make it happen.<br><br>
+
+						<span>Design:</span> <br>
+						I will execute your ideas and make them come to life. I will produce multiple designs with your ideas and concepts applied to them. <br><br>
+
+						<span>Refine:</span><br>
+						I will cater to your specific needs. You can reject designs if they don't express your ideas or meet your needs, or you can ask for them to be modified so that your concepts are better applied.<br><br>
+
+						<span>Implement:</span><br>
+						I will be with you all the way until you are satisfied with your project and until you are ready to upload.
+						</p>
 					</div>
 				</div>
 
@@ -171,12 +247,36 @@
 					<div class="left-content">
 						<img src="images/services/portrait.png">
 						<h3>Portraits</h3>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+						<p>
+						<span>Friendly, Stress Free Environments:</span><br>
+						The best pictures are taken when you are yourself. I will try to ensure that you and everyone else are comfortable and ready to smile.<br><br>
+
+						<span>Location Scouting:</span> <br>
+						Have a favorite place? Tell me where and we can work something out. If you don't, I can help by suggesting some. I will find locations with optimal lighting to produce the best photos.<br><br>
+
+						<span>Retouching:</span><br>
+						I will apply skin smoothing and blemish removal during post processing if needed.<br><br>
+						
+						<span>Pricing:</span><br>
+						Click <a href="#" id="price">here</a> for senior portrait pricing. Contact me for pricing on other forms of portraits.
+						</p>
 					</div>
 					<div class="right-content">
 						<img src="images/services/event.png">
 						<h3>Events</h3>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+						<p>
+						<span>Formal Pictures:</span><br>
+						Your classic, formal pictures.<br><br>
+
+						<span>Candid Pictures:</span> <br>
+						Nobody is ever serious 100% of the time. I will capture everybody’s happy side.<br><br>
+
+						<span>Fast Turn Around Time:</span><br>
+						Pictures will be retouched and given to you when you need them. It can be done on the spot if desired.<br><br>
+						
+						<span>Request Anything:</span><br>
+						I’m open to any unique and special requests. Just let me know beforehand and we can work something out.
+						</p>
 					</div>
 				</div>
 			</div><!--end service-block-->
@@ -189,7 +289,7 @@
 				</div>
 			</div><!--end slogan-->
 
-			<div class="prints-container">
+			<div class="prints-container" id="prints">
 				<img src="images/prints/print_bg.png">
 				<div class="prints">
 					<h2>PRINTS</h2>
@@ -198,45 +298,46 @@
 				</div>
 			</div><!--end prints container-->
 
-			<div class="contact-container">
+			<div class="contact-container" id="contact">
 				<img src="images/contacts/contact_bg.jpg">
 				<div class="contact">
 					<h2>CONTACT</h2>
 					<p id="contact-text">You can email or call me using the following information if you have an inquiry, want to colloborate, or just say hi! Follow me on my social media pages to see my recent work.</p>
-					<ul>
-						<li>
-							<span>EMAIL</span><br>hongsen.m.yang@gmail.com
-						</li>
-						<li>
-							<span>PHONE</span><br>617 932 9753
-						</li>
-						<li class="last">
-							<span>ADDRESS</span><br>Belmont, MA<br>02478<br>USA
-						</li>
-					</ul>
-					<!--
-					<p class="label">EMAIL</p>
-					<p class="small_text">hongsen.m.yang@gmail.com</p>
-					<p class="label">PHONE</p>
-					<p class="small_text">617 932 9753</p>
-					<p class="label">ADDRESS</p>
-					<p class="small_text">Belmont, MA <br>02478<br>USA</p>
-				-->
+
+					<div class="contact-info">
+						<p><span>EMAIL</span><br>hongsen.m.yang@gmail.com</p><br>
+						<p><span>PHONE</span><br>617 932 9753</p><br>
+						<p><span>ADDRESS</span><br>Belmont, MA<br>02478<br>USA</p><br>
+					</div>
+					<div class="contact-form">
+						<div id="form-div">
+							<form action="php/form.php" method="POST" enctype="multipart/form-data">
+								<p class="name"><input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name"></p>
+								<p class="email"><input name="email" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" /></p>
+								<p class="text"><textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea></p>
+								<div class="submit">
+									<input type="submit" value="SEND" id="button-blue"/>
+	        						<div class="ease"></div>
+	        					</div>
+							</form> 
+						</div>
+					</div>
 				</div>
 			</div><!--end contact-container-->
 
 			<div class="footer">
 				<div id="social-menu">
 					<div id="social-menu-wrapper">
-						<a href=""><img src="images/footer/fb.png"></a>
-						<a href=""><img src="images/footer/google.png"></a>
-						<a href=""><img src="images/footer/linkedin.png" id="last"></a>
+						<a href="" target="_blank"><img src="images/footer/fb.png"></a>
+						<a href="https://plus.google.com/118440644963224070392" rel="publisher" target="_blank"><img src="images/footer/google.png"></a>
+						<a href="http://www.linkedin.com/pub/hongsen-yang/88/600/bb4/" target="_blank"><img src="images/footer/linkedin.png" id="last"></a>
 					</div>
 				</div>
 				<div class="copyright-container">
 					<div class="copyright">
 						<img src="images/footer/footer_logo.png">
 						<p>COPYRIGHT (C) 2013 HONGSEN YANG. ALL RIGHTS RESERVED. </p>
+						<p>DEVELOPED BY BINLEY YANG.</p>
 					</div>
 				</div>
 			</div><!--end footer-->
@@ -417,6 +518,22 @@
 					}
 					addLoadEvent(preloader);
 				</script>
+			</div>
+
+			<div id="about-container">
+				<div id="about-text">
+					<h2>MEET HONGSEN YANG</h2>
+					<p>Welcome to my website. I am a senior at Belmont High School with a passion for graphic design and photography. <br> <br>
+
+					I have developed a keen sense of design through my various extracurricular drawing, sketching, and Chinese painting classes as well as my in-school art classes including AP Studio Art and AP 2D Design. In my free time, I like to browse through <a href="http://www.dribbble.com" target="_blank">dribbble</a> for inspiration and play around with Adobe Photoshop and Adobe Illustrator.<br><br>
+
+					I am also an aspiring self-taught photographer. I like to read online articles on <a href="http://www.photographylife.com" target="_blank">PhotographyLife</a> and watch photography videos. I started my photography journey in the summer of 2012, and have become a juried photographer since the summer of 2013.<br><br>
+
+					If you have any questions or you think we can work together, feel free to <a href="#contact" class="about_link">contact me</a>.</p>	
+				</div>
+				<div id="picture">
+					<img src="images/about/portrait.jpg">
+				</div>
 			</div>
 	</body>
 </html>

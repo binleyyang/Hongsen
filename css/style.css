@@ -14,6 +14,15 @@ body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+a img#btt {
+	position: fixed;
+	right: 50px;
+	top: 600px;
+	width: 50px;
+	height: 50px;
+	z-index: 9999;
+}
+
 .hidden {
 	display: none;
 }
@@ -74,17 +83,31 @@ nav ul li a:hover {
 	text-decoration: underline;
 }
 
+#banner {
+	height: 884px;
+}
+
 #banner img {
 	max-width: 100%;
+	width: 100%;
 	height: auto;
 	width: auto\9; /* ie8 */
 	position: relative;
 	padding-top: 90px;
 }
 
+#banner img#down {
+	position: absolute;
+	top: 700px;
+	width: 50px;
+	height: 50px;
+	margin-left: -25px;
+	left: 50%;
+}
+
 .intro {
 	position: relative;
-	height: 144px;
+	height: 246px;
 	background-color: #feba33;
 }
 
@@ -96,8 +119,57 @@ nav ul li a:hover {
 	width: 960px;
 	margin: 0 auto;
 	color: #fff;
-	font-size: 36px;
-	padding-top: 30px;
+	font-size: 40px;
+	padding-top: 72px;
+	font-family: 'Arial';
+	font-weight: bold;
+}
+
+.intro a {
+	color: #000;
+	text-decoration: none;
+}
+
+.intro a:hover {
+	text-decoration: underline;
+}
+
+#about-container {
+	width: 960px;
+	margin: 0 auto;
+	position: fixed; /*use left: 0 and right:0 to center absolutely positioned div*/
+	left: 0;
+	right: 0;
+	background-color: #fafafa;
+	top: 20.5%;
+	display: none;
+	z-index: 5;
+}
+
+#about-container #about-text {
+	width: 430px;
+	float: left;
+	padding: 20px;
+}
+
+#about-container #about-text h2 {
+	font-size: 26px;
+	font-family: 'Novecentowide-Normal';
+	padding-bottom: 24px;
+}
+
+#about-container #about-text a {
+	color: #000;
+}
+
+#about-container #about-text a:hover {
+	color: #c04033;
+}
+
+#about-container #picture {
+	width: 450px;
+	float: right;
+	padding: 20px 40px 20px 0;
 }
 
 .portfolio-text {
@@ -121,7 +193,18 @@ nav ul li a:hover {
 
 .buttons {
 	width: 100%;
-	background-color: #fafafa;
+	background: #fafafa;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f0f0f0), to(#fafafa));
+	background: -moz-gradient(linear, left top, left bottom, from(#f0f0f0), to(#fafafa));
+	background: -o-gradient(linear, left top, left bottom, from(#f0f0f0), to(#fafafa));
+	background: -ms-gradient(linear, left top, left bottom, from(#f0f0f0), to(#fafafa));
+	background: gradient(linear, left top, left bottom, from(#f0f0f0), to(#fafafa));
+
+	background: -webkit-gradient(linear, left bottom, left top, from(#f0f0f0), to(#fafafa));
+	background: -moz-gradient(linear, left bottom, left top, from(#f0f0f0), to(#fafafa));
+	background: -o-gradient(linear, left bottom, left top, from(#f0f0f0), to(#fafafa));
+	background: -ms-gradient(linear, left bottom, left top, from(#f0f0f0), to(#fafafa));
+	background: gradient(linear, left bottom, left top, from(#f0f0f0), to(#fafafa));
 }
 
 .buttons ul {
@@ -155,7 +238,15 @@ nav ul li a:hover {
 	background-color: #feba33;
 }
 
-.buttons ul li.button_active span {
+.buttons ul li.button_active1 span {
+	cursor: pointer;
+	padding: 36px;
+	top: 0;
+	left: 0;
+	background-color: #feba33;
+}
+
+.buttons ul li.button_active2 span {
 	cursor: pointer;
 	padding: 36px;
 	top: 0;
@@ -184,6 +275,7 @@ nav ul li a:hover {
 	zoom: 1;
     *display: inline;
     _height: 308px;
+    position: relative;
 }
 
 .album-container ul li.left-side {
@@ -196,9 +288,11 @@ nav ul li a:hover {
 
 .album-container ul li a {
 	opacity: 1;
+	position: relative;
+	z-index: 10;
 }
 
-.album-container ul li a:hover {
+.album-container ul li:hover a {
 	opacity: .5;
 	-webkit-transition: opacity .35s ease-in-out;
     -moz-transition: opacity .35s ease-in-out;
@@ -207,9 +301,41 @@ nav ul li a:hover {
 	transition: opacity .35s ease-in-out;
 } 
 
-.album-container p {
-	position: relative;
+.album-container ul li a:hover p {
+	display: block;
+	opacity: 1;
+}
+
+.album-container ul li p.label {
+	position: absolute;
+	top: 138px;
 	z-index: 100;
+	font-size: 28px;
+	opacity: 0;
+	text-decoration: none;
+	color: #000;
+
+	-webkit-transition: opacity .35s ease-in-out;
+    -moz-transition: opacity .35s ease-in-out;
+    -ms-transition: opacity .35s ease-in-out;
+    -o-transition: opacity .35s ease-in-out;
+	transition: opacity .35s ease-in-out;
+}
+
+.album-container ul li:hover p.label {
+	opacity: 1;
+}
+
+.album-container ul li p.label:hover {
+	cursor: pointer;
+}
+
+.album-container ul li p.seven {
+	left: 168px;
+}
+
+.album-container ul li p.four {
+	left: 194px;
 }
 
 #design-port {
@@ -233,6 +359,7 @@ nav ul li a:hover {
 .client img#bg {
 	position: absolute;
 	z-index: 1;
+	width: 100%;
 }
 
 .client img#boxes {
@@ -279,16 +406,24 @@ nav ul li a:hover {
 	padding-top: 36px;
 }
 
+.service-block span {
+	font-size: 20px;
+	font-family: 'Novecentowide-Medium';
+	line-height: 30px;
+}
+
 .service-block .left-content {
 	position: relative;
 	float: left;
 	width: 460px;
+	padding: 0 10px;
 }
 
 .service-block .right-content {
 	position: relative;
 	float: right;
 	width: 460px;
+	padding: 0 10px;
 }
 
 .service-block .left-content img {
@@ -305,14 +440,14 @@ nav ul li a:hover {
 
 .service-block .left-content h3 {
 	text-align: center;
-	font-family: 'Novecentowide-Normal';
+	font-family: 'Novecentowide-Medium';
 	font-size: 28px;
 	padding-bottom: 18px;
 }
 
 .service-block .right-content h3 {
 	text-align: center;
-	font-family: 'Novecentowide-Normal';
+	font-family: 'Novecentowide-Medium';
 	font-size: 28px;
 	padding-bottom: 18px;
 }
@@ -342,12 +477,13 @@ nav ul li a:hover {
 	width: 960px;
 	margin: 0 auto;
 	text-align: center;
-	padding: 54px;
+	padding: 64px;
 }
 
 #slogan p {
 	color: #fff;
-	font-size: 36px;
+	font-size: 48px;
+	font-weight: bold;
 }
 
 #slogan span {
@@ -360,11 +496,12 @@ nav ul li a:hover {
 	position: relative;
 	width: 100%;
 	top: 36px;
-	height: 626px;
+	height: 627px;
 }
 
 .prints-container img {
 	position: absolute;
+	width: 100%;
 }
 
 .prints {
@@ -376,6 +513,7 @@ nav ul li a:hover {
 
 .prints img {
 	left: 43%;
+	width: auto;
 }
 
 .prints-container .prints h2 {
@@ -398,11 +536,13 @@ nav ul li a:hover {
 	width: 100%;
 	position: relative;
 	height: 843px;
+	top:0;
 }
 
 .contact-container img {
 	opacity: .5;
 	position: absolute;
+	width: 100%;
 }
 
 .contact-container .contact {
@@ -427,32 +567,153 @@ nav ul li a:hover {
 	margin-top: 36px;
 }
 
-.contact-container .contact ul {
-	list-style-type: none;
-	margin-top: 36px;
-}
-
-.contact-container .contact ul li {
-	float: left;
-	width: 207px;
-	text-align: left;
-	padding-right: 220px;
-}
-
-.contact-container .contact ul li.last {
-	padding-right: 0px;
-	width: 100px;
-}
-
-.contact-container .contact ul li span {
-	font-size: 24px;
+.contact-container .contact span {
+	font-size: 18px;
 	font-family: 'Novecentowide-Medium';
+}
+
+.contact-info {
+	margin-top: 36px;
+	width: 180px;
+	float: left;
+	text-align: left;
+}
+
+.contact-form {
+	margin-top: 36px;
+	width: 680px;
+	float: right;
+}
+
+#form-div {
+
+}
+.feedback-input {
+	color:#3c3c3c;
+	font-family: Helvetica, Arial, sans-serif;
+  	font-weight:500;
+	font-size: 18px;
+	border-radius: 0;
+	line-height: 22px;
+	background-color: transparent;
+	padding: 13px 13px 13px 54px;
+	margin-bottom: 10px;
+	width:100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+  	border: 3px solid rgba(221,221,221,.4);
+}
+
+.feedback-input:focus{
+	background: transparent; 
+	box-shadow: 0;
+	border: 3px solid #feba33;
+	color: #000;
+	outline: none;
+  	padding: 13px 13px 13px 54px;
+}
+
+.focused{
+	color:#feba33;
+	border:#feba33 solid 3px;
+}
+
+/* Icons ---------------------------------- */
+#name{
+	background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#name:focus{
+	background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+	background-size: 30px 30px;
+	background-position: 8px 5px;
+  	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#email{
+	background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#email:focus{
+	background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+	background-size: 30px 30px;
+  	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#comment{
+	background-image: url(http://rexkirby.com/kirbyandson/images/comment.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+textarea {
+	width: 100%;
+	height: 350px;
+	line-height: 150%;
+}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+	background-color:transparent;
+}
+
+#button-blue{
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	float:right;
+	width: 25%;
+	border: #fff solid 4px;
+	cursor:pointer;
+	background-color: transparent;
+	color:white;
+	font-size:24px;
+	padding-top:22px;
+	padding-bottom:22px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+ 	margin-top:-4px;
+  	font-weight:700;
+}
+
+#button-blue:hover{
+	background-color: #feba33;
+	color: #fff;
+}
+	
+.submit:hover {
+	color: #feba33;
+}
+
+@media only screen and (max-width: 580px) {
+	#form-div{
+		left: 3%;
+		margin-right: 3%;
+		width: 88%;
+		margin-left: 0;
+		padding-left: 3%;
+		padding-right: 3%;
+	}
 }
 
 /*-----------------------------------------------------------FOOTER------------------------------------------------------*/
 .footer {
 	position: relative;
 	width: 100%;
+}
+
+.footer p + p {
+	margin-top: -28px;
 }
 
 #social-menu {
@@ -522,6 +783,7 @@ nav ul li a:hover {
 .description {
 	width: 240px;
 	float: left;
+	padding-right: 30px;
 }
 
 .description h2 {
